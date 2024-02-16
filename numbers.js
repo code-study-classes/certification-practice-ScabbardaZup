@@ -27,6 +27,11 @@ const calculateDigitSum = (x) => {
 };
 console.log(calculateDigitSum(47));
 
+function swapHundredsAndTens(num) {
+  return `${num % 10}${Math.floor(num / 10) % 10}${Math.floor(num / 100)}`;
+}
+console.log(swapHundredsAndTens(123))
+
 function getHundredsDigit(number) {
   if (number <= 999) {
     return 0;
@@ -57,5 +62,5 @@ function countSquares(A, B, C) {
 console.log (countSquares(10, 10, 5));
 
 export {
-  calculateDistance, calculateSegmentProduct, calculateKilobytes, calculateSegments, calculateDigitSum, countSquares, getDayOfWeek, getFullHours, getHundredsDigit
+  calculateDistance, calculateSegmentProduct, calculateKilobytes, calculateSegments, calculateDigitSum, countSquares, getDayOfWeek, getFullHours, getHundredsDigit, swapHundredsAndTens
 };
