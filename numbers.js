@@ -33,35 +33,35 @@ function getHundredsDigit(number) {
   }
   return Math.floor((number / 100) % 10);
 }
-console.log (getHundredsDigit(1234));
+console.log(getHundredsDigit(1234));
 
 function getFullHours(N) {
-  var fullHours = Math.floor(N / 3600);
+  const fullHours = Math.floor(N / 3600);
   return fullHours;
 }
-console.log (getFullHours(3600));
+console.log(getFullHours(3600));
 
 function getDayOfWeek(K) {
   const dayOfWeek = (K) % 7;
   return dayOfWeek;
 }
-console.log (getDayOfWeek(10));
+console.log(getDayOfWeek(10));
 
 function countSquares(A, B, C) {
   // Вычисляем количество возможных квадратов по вертикали и горизонтали
-  let squaresVertical = Math.floor(A / C);
-  let squaresHorizontal = Math.floor(B / C);
+  const squaresVertical = Math.floor(A / C);
+  const squaresHorizontal = Math.floor(B / C);
   // Возвращаем произведение количества квадратов по вертикали и горизонтали
   return squaresVertical * squaresHorizontal;
 }
-console.log (countSquares(10, 10, 5));
+console.log(countSquares(10, 10, 5));
 
 function swapHundredsAndTens(num) {
   return `${num % 10}${Math.floor(num / 10) % 10}${Math.floor(num / 100)}`;
 }
-console.log(swapHundredsAndTens(123))
+console.log(swapHundredsAndTens(123));
 
 export {
   calculateDistance, calculateSegmentProduct, calculateKilobytes, calculateSegments, calculateDigitSum,
-  countSquares, getDayOfWeek, getFullHours, getHundredsDigit, swapHundredsAndTens
+  countSquares, getDayOfWeek, getFullHours, getHundredsDigit, swapHundredsAndTens,
 };
