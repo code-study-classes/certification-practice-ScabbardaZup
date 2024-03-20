@@ -79,29 +79,29 @@ function describeNumber(n) {
 console.log(describeNumber(24));
 
 function getDayName(dayNumber) {
-    let getDayName;
+    let dayName;
   
     if (dayNumber === 1) {
-        getDayName = "monday";
+        dayName = "Monday";
     } else if (dayNumber === 2) {
-        getDayName = "tuesday";
+        dayName = "Tuesday";
     } else if (dayNumber === 3) {
-        getDayName = "wednesday";
+        dayName = "Wednesday";
     } else if (dayNumber === 4) {
-        getDayName = "thursday";
+        dayName = "Thursday";
     } else if (dayNumber === 5) {
-        getDayName = "friday";
+        dayName = "Friday";
     } else if (dayNumber === 6) {
-        getDayName = "saturday";
+        dayName = "Saturday";
     } else if (dayNumber === 7) {
-        getDayName = "sunday";
+        dayName = "Sunday";
     } else {
         if(dayNumber >= 1 && dayNumber <= 7) {
-            getDayName = "Invalid day number.";
+            dayName = "Invalid day number.";
         }
     }
     
-    return getDayName;
+    return dayName;
 }
 console.log(getDayName(1));
 
@@ -127,7 +127,180 @@ function convertToMeters(unitNumber, lengthInUnits) {
 }
 console.log(convertToMeters(3, 10));
 
+function describeAge(age) {
+    let description;
+
+    if (age < 20 || age > 69) {
+        return "Возраст должен быть в диапазоне от 20 до 69";
+    }
+
+    const lastDigit = age % 10;
+    const lastTwoDigits = age % 100;
+
+    switch (lastDigit) {
+        case 1:
+            description = "год";
+            break;
+        case 2:
+        case 3:
+        case 4:
+            description = "года";
+            break;
+        default:
+            description = "лет";
+            break;
+    }
+
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+        description = "лет";
+    }
+
+    return `${age} ${description}`;
+}
+
+console.log(describeAge(20)); 
+console.log(describeAge(32)); 
+console.log(describeAge(41)); 
+
+function describeNumber2(number) {
+    if (number < 100 || number > 999) {
+        return "Число должно быть в диапазоне от 100 до 999";
+    }
+
+    const hundreds = Math.floor(number / 100);
+    const tens = Math.floor((number % 100) / 10);
+    const ones = number % 10;
+
+    let description = "";
+
+    switch (hundreds) {
+        case 1:
+            description += "сто ";
+            break;
+        case 2:
+            description += "двести ";
+            break;
+        case 3:
+            description += "триста ";
+            break;
+        case 4:
+            description += "четыреста ";
+            break;
+        case 5:
+            description += "пятьсот ";
+            break;
+        case 6:
+            description += "шестьсот ";
+            break;
+        case 7:
+            description += "семьсот ";
+            break;
+        case 8:
+            description += "восемьсот ";
+            break;
+        case 9:
+            description += "девятьсот ";
+            break;
+    }
+
+    if (tens === 1) {
+        switch (ones) {
+            case 0:
+                description += "десять";
+                break;
+            case 1:
+                description += "одиннадцать";
+                break;
+            case 2:
+                description += "двенадцать";
+                break;
+            case 3:
+                description += "тринадцать";
+                break;
+            case 4:
+                description += "четырнадцать";
+                break;
+            case 5:
+                description += "пятнадцать";
+                break;
+            case 6:
+                description += "шестнадцать";
+                break;
+            case 7:
+                description += "семнадцать";
+                break;
+            case 8:
+                description += "восемнадцать";
+                break;
+            case 9:
+                description += "девятнадцать";
+                break;
+        }
+    } else {
+        switch (tens) {
+            case 2:
+                description += "двадцать ";
+                break;
+            case 3:
+                description += "тридцать ";
+                break;
+            case 4:
+                description += "сорок ";
+                break;
+            case 5:
+                description += "пятьдесят ";
+                break;
+            case 6:
+                description += "шестьдесят ";
+                break;
+            case 7:
+                description += "семьдесят ";
+                break;
+            case 8:
+                description += "восемьдесят ";
+                break;
+            case 9:
+                description += "девяносто ";
+                break;
+        }
+
+        switch (ones) {
+            case 1:
+                description += "один";
+                break;
+            case 2:
+                description += "два";
+                break;
+            case 3:
+                description += "три";
+                break;
+            case 4:
+                description += "четыре";
+                break;
+            case 5:
+                description += "пять";
+                break;
+            case 6:
+                description += "шесть";
+                break;
+            case 7:
+                description += "семь";
+                break;
+            case 8:
+                description += "восемь";
+                break;
+            case 9:
+                description += "девять";
+                break;
+        }
+    }
+
+    return description.trim();
+}
+
+console.log(describeNumber2(256)); 
+console.log(describeNumber2(814));
 
 export {
-    incrementIfPositive, getIndexOfSmallerNumber, findMiddleNumber, findUniqueNumber, calculateF, describeNumber, getDayName,  convertToMeters
+    incrementIfPositive, getIndexOfSmallerNumber, findMiddleNumber, findUniqueNumber, calculateF, describeNumber, getDayName,  convertToMeters, describeAge, describeNumber2
 }
